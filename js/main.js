@@ -68,3 +68,14 @@ btnEntrar.addEventListener("click", () => {
     }
 });
 
+// MENU
+
+const seccionMenuPrincipal = document.getElementById("menuPrincipal");
+const btnMonedaExtranjera = document.getElementById("monedaExtranjera");
+const btnBtc = document.getElementById("btc");
+const btnPlazoFijo = document.getElementById("btnplazoFijo");
+const seccionDivisas = document.getElementById("divisas");
+const seccionBitcoin = document.getElementById("bitcoin");
+const seccionPlazoFijo = document.getElementById("plazoFijo");
+
+
