@@ -4,8 +4,15 @@
     box-sizing: border-box;
 }
 
+/*background-color: rgb(54, 38, 59)*/
+
 body {
-    background-color: rgb(54, 38, 59);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../assets/fondopantalla.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +29,7 @@ body {
 /* pagina inicio */ 
 
 #paginaInicio {
-    background-color: rgb(37, 23, 41);
+    background-color: rgba(37, 23, 41, 0.7);
     border-radius: 20px;
     padding: 80px 40px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -32,6 +39,7 @@ body {
     text-align: center;
     color: white;
     backdrop-filter: blur(10px);
+
 }
 
 #primerPantalla h1 {
@@ -43,16 +51,42 @@ body {
 
 #btnIniciarSesion {
     width: 200px; 
+    padding: 15px 0;
     margin: 30px auto;
     font-size: 1.2rem;
-    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    border-radius: 12px;
+    border: none;
     cursor: pointer;
+    background-color: rgb(187 , 92, 214);
+    transition: all 0.3s ease;
+
+}
+
+#btnIniciarSesion:hover {
+    background-color: rgb(150, 70, 180);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgb(187, 92, 214, 0.4);
 }
 
 #btnRegistrarse {
     width: 200px; 
+    padding: 15px 0;
     margin: 30px auto;
     font-size: 1.2rem;
-    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    border-radius: 12px;
+    border: none;
     cursor: pointer;
+    background-color: rgb(187 , 92, 214);
+    transition: all 0.3s ease;
+
+}
+
+#btnRegistrarse:hover {
+    background-color: rgb(150, 70, 180);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgb(187, 92, 214, 0.4);
 }
