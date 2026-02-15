@@ -60,7 +60,9 @@ btnEntrar.addEventListener("click", () => {
     if (passGuardada === null) {
         alert("El usuario no existe.");
     } else if (passGuardada === passLogin){
-        alert("Bienvenido al simulador de inversiones!"); //agregar pages inversiones
+        alert("Bienvenido al simulador de inversiones!");
+        
+        window.location.href = "../pages/menu.html";
     } else {
         alert("Contraseña incorrecta.")
     }
