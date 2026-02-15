@@ -22,3 +22,47 @@ btnRegistrarse.addEventListener("click", () => {
     seccionRegistrarse.classList.remove("oculto");
 });
 
+
+// REGISTRARSE 
+
+btnGuardar.addEventListener("click", () => {
+    const user = inputUsername.value;
+    const pass = inputPassword.value;
+
+    if (user === "" || pass === "") {
+        alert("Por fabor, completa todos los campos");
+        return;
+    }
+
+    const usuarioExistente = localStorage.getItem(user);
+
+    if (usuarioExistente) {
+        alert("Este nombre de usuario ya existe. Elige otro.");
+    } else {
+        localStorage.setItem(user, pass);
+        alert("Registro exitoso! Ahora puedes iniciar sesión.");
+
+        inputUsername.value = "";
+        inputPassword.value = "";
+        seccionRegistrarse.classList.add("oculto");
+        seccionIniciarSesion.classList.remove("oculto");
+    }
+});
+
+// INICIAR SESION
+
+btnEntrar.addEventListener("click", () => {
+    const userLogin = inputLoginUser.value;
+    const passLogin = inputLoginPass.value;
+
+    const passGuardada = localStorage.getItem(userLogin);
+
+    if (passGuardada === null) {
+        alert("El usuario no existe.");
+    } else if (passGuardada === passLogin){
+        alert("Bienvenido al simulador de inversiones!"); //agregar pages inversiones
+    } else {
+        alert("Contraseña incorrecta.")
+    }
+});
+
