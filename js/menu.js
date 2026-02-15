@@ -13,3 +13,54 @@ btnMonedaExtranjera.addEventListener("click", () => {
     seccionMenuPrincipal.classList.add("oculto");
     seccionDivisas.classList.remove("oculto");
 });
+
+btnBtc.addEventListener("click", () => {
+    seccionMenuPrincipal.classList.add("oculto");
+    seccionBitcoin.classList.remove("oculto");
+});
+
+btnPlazoFijo.addEventListener("click", () => {
+    seccionMenuPrincipal.classList.add("oculto");
+    seccionPlazoFijo.classList.remove("oculto");
+});
+
+// MONEDA EXTRANJERA
+
+const btnConvertir = document.getElementById("btnConvertir");
+const inputMontoPesos = document.getElementById("montoPesos");
+const selectorMoneda = document.getElementById("tipoMoneda");
+const textoResultado = document.getElementById("textoResultado");
+
+btnConvertir.addEventListener("click", async () => {
+    const monto = parseFloat(inputMontoPesos.value);
+    const monedaSeleccionada = selectorMoneda.value;
+
+    if (isNaN(monto) || monto <= 0) {
+        alert("Por favor, ingresa un monto valido.");
+        return;
+    }
+
+    try {
+        textoResultado.innerText = "Consultando cotizacion...";
+
+        let url = "https://dolarapi.com/v1/dolares/oficial";
+        if (monedaSeleccionada === "blue") url = "https://dolarapi.com/v1/dolares/blue";
+        if (monedaSeleccionada === "euro") url = "https://dolarapi.com/v1/cotizaciones/eur";
+
+        const respueta = await fetch(url);
+        const datos = await respueta.json();
+
+        const cotizacion = datos.venta;
+        const resultado = monto / cotizacion;
+
+        textoResultado.innerHTML = `
+             <p>Cotizacion actual: <strong>$${cotizacion}</strong></p>
+                <p>Resultado: <strong>${resultado.toFixed(2)} ${monedaSeleccionada.toUpperCase()}</strong></p>
+        `;
+
+    } catch (error) {
+        console.error("error al traer la API:", error);
+        textoResultado.innerText = "error al conectar con la API. Intenta mas tarde";
+
+    }
+});

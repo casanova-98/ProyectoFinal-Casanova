@@ -24,7 +24,21 @@
 
     <section id="divisas" class="oculto">
         <h2>Conversor de moneda extranjera</h2>
-        <input type="text" >
+        <div class="calculadora">
+            <input type="number" id="montoPesos" placeholder="Monto en pesos ARS">
+
+            <select id="tipoMoneda">
+                <option value="oficial">Dolar oficial</option>
+                <option value="blue">Dolar blue</option>
+                <option value="euro">Euro</option>
+            </select>
+            <button id="btnConvertir" class="opcion">Convertir</button>
+        </div>
+
+        <div id="resultadoCotizacion">
+            <p id="textoResultado">Ingrese el monto para calcular</p>
+        </div>
+
     </section>
 
     <section id="bitcoin" class="oculto">
