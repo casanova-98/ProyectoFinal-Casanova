@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +9,8 @@
     display: none;
 }
 
-/*background-color: rgb(54, 38, 59)*/
-
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(../assets/fondopantalla.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../assets/fondopantalla.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -23,161 +21,49 @@ body {
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
-    height: auto;                   
-    overflow: hidden;
+    color: white;
+    overflow-x: hidden; 
 }
 
-
-
-/* pagina inicio */ 
-
-#paginaInicio {
+/* SECTIONS */
+section {
     background-color: rgba(37, 23, 41, 0.7);
     border-radius: 20px;
-    padding: 80px 40px;
+    padding: 60px 40px; 
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
     max-width: 800px;
     width: 90%;
     text-align: center;
-    color: white;
     backdrop-filter: blur(10px);
-
+    margin: 20px 0;
 }
 
-#primerPantalla h1 {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 40px;
-    line-height: 1.2;
-}
+/* TIPOGRAFIA */
+h1 { font-size: 3rem; margin-bottom: 30px; }
+h2 { font-size: 2rem; margin-bottom: 20px; }
 
-#btnIniciarSesion {
-    width: 200px; 
-    padding: 15px 0;
-    margin: 30px auto;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(187 , 92, 214);
-    transition: all 0.3s ease;
+#primerPantalla h1 { line-height: 1.2; }
 
-}
 
-#btnIniciarSesion:hover {
-    background-color: rgb(150, 70, 180);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgb(187, 92, 214, 0.4);
-}
-
-#btnRegistrarse {
-    width: 200px; 
-    padding: 15px 0;
-    margin: 30px auto;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(187 , 92, 214);
-    transition: all 0.3s ease;
-
-}
-
-#btnRegistrarse:hover {
-    background-color: rgb(150, 70, 180);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgb(187, 92, 214, 0.4);
-}
-
-/* INICIAR SESION */
-
-#iniciarsesion h2 {
-    font-size: 2rem;
-}
-
-#iniciarsesion input {
-    padding: 5px 0;
-    margin: 20px;
-    border-radius: 5px;
-    
-}
-
-#iniciarsesion button {
+/* INPUTS Y SELECT */
+input, select {
     padding: 10px;
-    margin: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
     font-size: 1rem;
     font-weight: bold;
-    color: white;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(187 , 92, 214);
-    transition: all 0.3s ease;
+    width: 250px; 
+    outline: none;
 }
 
-#btnEntrar:hover {
-    background-color: rgb(150, 70, 180);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgb(187, 92, 214, 0.4);
-}
-
-/* REGISTRARSE */
-
-#registrarse h2 {
-    font-size: 2rem;
-}
-
-#registrarse input {
-    padding: 5px 0;
-    margin: 20px;
-    border-radius: 5px;
-    
-}
-
-#registrarse button {
-    padding: 10px;
-    margin: 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(187 , 92, 214);
-    transition: all 0.3s ease;
-}
-
-#btnGuardar:hover {
-    background-color: rgb(150, 70, 180);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgb(187, 92, 214, 0.4);
-}
-
-/* MENU PAGE */
-
-#menuPrincipal {
-    background-color: rgba(37, 23, 41, 0.7);
-    border-radius: 20px;
-    padding: 80px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    max-width: 800px;
-    width: 90%;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(10px);
-}
-
-.opcion {
-    width: 200px; 
+/* BOTONES */
+.opcion, #btnIniciarSesion, #btnRegistrarse, #btnEntrar, #btnGuardar, #btnCalcularPlazoFijo, #btnConvertir, #btnSimularBtc {
+    width: 220px; 
     padding: 15px 0;
-    margin: 30px auto;
-    font-size: 1.2rem;
+    margin: 20px auto;
+    font-size: 1.1rem;
     font-weight: bold;
     color: white;
     border-radius: 12px;
@@ -185,103 +71,24 @@ body {
     cursor: pointer;
     background-color: rgb(187 , 92, 214);
     transition: all 0.3s ease;
+    display: inline-block; 
 }
 
-.opcion:hover {
+
+.opcion:hover, button:hover {
     background-color: rgb(150, 70, 180);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgb(187, 92, 214, 0.4);
+    box-shadow: 0 5px 15px rgba(187, 92, 214, 0.4);
 }
 
 
-/* CONVERSOR DE MONEDA EXTRANJERA */
-
-#divisas {
-    background-color: rgba(37, 23, 41, 0.7);
-    border-radius: 20px;
-    padding: 80px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    max-width: 800px;
-    width: 90%;
-    text-align: center;
+.btnVolver {
+    background-color: transparent !important;
+    border: 1px solid white !important;
+    width: auto !important;
+    padding: 10px 20px !important;
+    margin-top: 30px;
+    font-size: 0.9rem;
     color: white;
-    backdrop-filter: blur(10px);
 }
 
-#divisas input {
-    padding: 10px 0;
-    margin: 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    
-}
-
-#divisas select {
-    padding: 10px 0;
-    margin: 20px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    
-}
-
-
-/* BITCOIN */
-
-#bitcoin {
-    background-color: rgba(37, 23, 41, 0.7);
-    border-radius: 20px;
-    padding: 80px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    max-width: 800px;
-    width: 90%;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(10px);
-}
-
-#bitcoin h2 {
-    font-size: 2rem;
-}
-
-#bitcoin input {
-    width: 275px;
-    padding: 10px ;
-    margin: 25px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    
-}
-
-/* PLAZO FIJO */
-
-#plazoFijo {
-    background-color: rgba(37, 23, 41, 0.7);
-    border-radius: 20px;
-    padding: 80px 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
-    max-width: 800px;
-    width: 90%;
-    text-align: center;
-    color: white;
-    backdrop-filter: blur(10px);
-}
-
-#plazoFijo h2 {
-    font-size: 2rem;
-}
-
-#plazoFijo input {
-    width: 275px;
-    padding: 10px ;
-    margin: 25px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    
-}
