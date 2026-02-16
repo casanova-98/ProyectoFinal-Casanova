@@ -192,3 +192,37 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgb(187, 92, 214, 0.4);
 }
+
+
+/* CONVERSOR DE MONEDA EXTRANJERA */
+
+#divisas {
+    background-color: rgba(37, 23, 41, 0.7);
+    border-radius: 20px;
+    padding: 80px 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+#divisas input {
+    padding: 10px 0;
+    margin: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    
+}
+
+#divisas select {
+    padding: 10px 0;
+    margin: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    
+}

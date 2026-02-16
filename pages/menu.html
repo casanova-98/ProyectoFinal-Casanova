@@ -39,14 +39,28 @@
             <p id="textoResultado">Ingrese el monto para calcular</p>
         </div>
 
+        <button class="btnVolver">Volver al menu anterior</button>
+
     </section>
 
     <section id="bitcoin" class="oculto">
         <h2>Simulador de Bitcoin</h2>
+        <div class="calculadora">
+            <p>Precio actual: <span id="precioBtc">Cargando...</span></p>
+            <input type="number" id="montoInvertir" placeholder="Monto en USD para comprar">
+            <button id="btnSimularBtc" class="opcion">Calcular bitcoin</button>
+        </div>
+
+        <div id="resultadoBtc">
+            <p id="textoBtc">Ingrese cuantos dolares quiere invertir</p>
+        </div>
+
+        <button class="btnVolver">Volver al menu anterior</button>
     </section>
 
     <section id="plazoFijo" class="oculto">
         <h2>Simulador de Plazo Fijo</h2>
+        <button class="btnVolver">Volver al menu anterior</button>
     </section>
 </body>
 
