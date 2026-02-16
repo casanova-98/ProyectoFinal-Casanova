@@ -30,7 +30,14 @@ btnGuardar.addEventListener("click", () => {
     const pass = inputPassword.value;
 
     if (user === "" || pass === "") {
-        alert("Por fabor, completa todos los campos");
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campos vacíos',
+            text: 'Por favor, completa todos los campos para continuar.',
+            confirmButtonColor: '#bb5cd6',
+            background: '#251729',
+            color: '#fff'
+        });
         return;
     }
 
@@ -39,7 +46,14 @@ btnGuardar.addEventListener("click", () => {
     const usuarioExiste = usuariosActuales.find(u => u.username === user);
 
     if (usuarioExiste) {
-        alert("Este nombre de usuario ya existe. Elige otro.");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ese usuario ya existe!",
+            confirmButtonColor: '#bb5cd6',
+            background: '#251729',
+            color: '#fff'
+        });
     } else {
         const nuevoUsuario = {
             username: user,
@@ -50,7 +64,14 @@ btnGuardar.addEventListener("click", () => {
 
         localStorage.setItem("usuariosDB", JSON.stringify(usuariosActuales));
 
-        alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
+        Swal.fire({
+            title: "Creaste la cuenta con exito!",
+            icon: "success",
+            draggable: true,
+            confirmButtonColor: '#bb5cd6',
+            background: '#251729',
+            color: '#fff'
+        });
 
 
         inputUsername.value = "";
@@ -68,18 +89,41 @@ btnEntrar.addEventListener("click", () => {
 
     const usuariosActuales = JSON.parse(localStorage.getItem("usuariosDB")) || [];
 
-    
+
     const usuarioEncontrado = usuariosActuales.find(u => u.username === userLogin);
 
     if (!usuarioEncontrado) {
-        alert("El usuario no existe.");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "El usuario no existe!",
+            confirmButtonColor: '#bb5cd6',
+            background: '#251729',
+            color: '#fff'
+        });
     } else if (usuarioEncontrado.password === passLogin) {
-        alert("¡Bienvenido al simulador de inversiones!");
+        Swal.fire({
+            position: "top-end",
+            icon: "suscces",
+            title: "Bienvenido al simulador de inversiones!",
+            showConfirmButton: false,
+            timer: 1500,
+            confirmButtonColor: '#bb5cd6',
+            background: '#251729',
+            color: '#fff'
+        });
 
         localStorage.setItem("usuarioLogueado", usuarioEncontrado.username);
 
         window.location.href = "../pages/menu.html";
     } else {
-        alert("Contraseña incorrecta.");
+         Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Contraseña incorrecta!",
+            confirmButtonColor: '#bb5cd6',
+            background: '#251729',
+            color: '#fff'
+        });
     }
 });

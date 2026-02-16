@@ -103,7 +103,7 @@ if (btnSimularBtc) {
             textoBtc.innerHTML = `
                 <p>Con U$D ${montoUsd} comprarías:</p>
                 <p><strong>${cantidadBtc.toFixed(8)} BTC</strong></p>
-                <p style="font-size: 0.9rem; color: #8a2be2;">Eso es aprox. ${(cantidadBtc * 100000000).toLocaleString()} Satoshis</p>
+                <p style="font-size: 0.9rem; color: #8a2be2;">Eso es aprox. ${(cantidadBtc * 100000000).toLocaleString()} Bitcoins</p>
             `;
         }
     });
