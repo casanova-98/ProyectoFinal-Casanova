@@ -70,7 +70,7 @@ btnConvertir.addEventListener("click", async () => {
 
 // BITCOIN
 
-const btnSimularBtc = document.getElementById("btcSimularBtc");
+const btnSimularBtc = document.getElementById("btnSimularBtc");
 const inputMontoBtc = document.getElementById("montoInvertir");
 const textoBtc = document.getElementById("textoBtc");
 const precioBtcSpan = document.getElementById("precioBtc");
@@ -80,33 +80,81 @@ async function obtenerPrecioBitcoin() {
         const respuesta = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd");
         const datos = await respuesta.json();
         const precio = datos.bitcoin.usd;
-        precioBtcSpan.innerText = `U$D ${precio.toLocaleString()}`;
+        if (precioBtcSpan) precioBtcSpan.innerText = `U$D ${precio.toLocaleString()}`;
         return precio;
     } catch (error) {
-        precioBtcSpan.innerText = "Error al cargar precio";
+        if (precioBtcSpan) precioBtcSpan.innerText = "Error al cargar precio";
         console.error("Error CoinGecko:", error);
     }
 }
 
-btnSimularBtc.addEventListener("click", async () => {
-    const montoUsd = parseFloat(inputMontoBtc.value);
 
-    if (isNaN(montoUsd) || montoUsd <= 0) {
-        alert("Ingresa un monto en dólares válido.");
-        return;
-    }
+if (btnSimularBtc) {
+    btnSimularBtc.addEventListener("click", async () => {
+        const montoUsd = parseFloat(inputMontoBtc.value);
+        if (isNaN(montoUsd) || montoUsd <= 0) {
+            alert("Ingresa un monto en dólares válido.");
+            return;
+        }
+        textoBtc.innerText = "Calculando...";
+        const precioActual = await obtenerPrecioBitcoin();
+        if (precioActual) {
+            const cantidadBtc = montoUsd / precioActual;
+            textoBtc.innerHTML = `
+                <p>Con U$D ${montoUsd} comprarías:</p>
+                <p><strong>${cantidadBtc.toFixed(8)} BTC</strong></p>
+                <p style="font-size: 0.9rem; color: #8a2be2;">Eso es aprox. ${(cantidadBtc * 100000000).toLocaleString()} Satoshis</p>
+            `;
+        }
+    });
+}
 
-    textoBtc.innerText = "Calculando...";
 
-    const precioActual = await obtenerPrecioBitcoin();
+// PLAZO FIJO
 
-    if (precioActual) {
-        const cantidadBtc = montoUsd / precioActual;
+const btnCalcularPF = document.getElementById("btnCalcularPlazoFijo");
+const inputMontoPF = document.getElementById("montoPlazoFijo");
+const inputDiasPF = document.getElementById("diasPlazoFijo");
+const textoPF = document.getElementById("textoPlazoFijo");
 
-        textoBtc.innerHTML = `
-            <p>Con U$D ${montoUsd} comprarías:</p>
-            <p><strong>${cantidadBtc.toFixed(8)} BTC</strong></p>
-            <p style="font-size: 0.9rem; color: #8a2be2;">Eso es aprox. ${(cantidadBtc * 100000000).toLocaleString()} bitcoins</p>
+if (btnCalcularPF) {
+    btnCalcularPF.addEventListener("click", () => {
+        console.log("¡Clic en el botón de Plazo Fijo detectado!");
+
+        const monto = parseFloat(inputMontoPF.value);
+        const dias = parseInt(inputDiasPF.value);
+
+        console.log("Monto ingresado:", monto);
+        console.log("Días ingresados:", dias);
+
+        if (isNaN(monto) || monto <= 0 || isNaN(dias) || dias < 30) {
+            alert("Revisa los datos: el monto debe ser mayor a 0 y los días mínimo 30.");
+            return;
+        }
+
+        const TNA = 70;
+        const interesGanado = (monto * (TNA / 100)) * (dias / 365);
+        const montoTotal = monto + interesGanado;
+
+        console.log("Resultado calculado:", montoTotal);
+
+        textoPF.innerHTML = `
+            <p>Intereses: $${interesGanado.toFixed(2)}</p>
+            <p>Total: $${montoTotal.toFixed(2)}</p>
         `;
-    }
+    });
+} else {
+    console.error("No se encontró el botón con ID 'btnCalcularPlazoFijo'");
+}
+
+// BOTONES VOLVER
+
+const botonesVolver = document.querySelectorAll(".btnVolver");
+botonesVolver.forEach(btn => {
+    btn.addEventListener("click", () => {
+        seccionDivisas.classList.add("oculto");
+        seccionBitcoin.classList.add("oculto");
+        seccionPlazoFijo.classList.add("oculto");
+        seccionMenuPrincipal.classList.remove("oculto");
+    });
 });
