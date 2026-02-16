@@ -34,13 +34,24 @@ btnGuardar.addEventListener("click", () => {
         return;
     }
 
-    const usuarioExistente = localStorage.getItem(user);
+    const usuariosActuales = JSON.parse(localStorage.getItem("usuariosDB")) || [];
 
-    if (usuarioExistente) {
+    const usuarioExiste = usuariosActuales.find(u => u.username === user);
+
+    if (usuarioExiste) {
         alert("Este nombre de usuario ya existe. Elige otro.");
     } else {
-        localStorage.setItem(user, pass);
-        alert("Registro exitoso! Ahora puedes iniciar sesión.");
+        const nuevoUsuario = {
+            username: user,
+            password: pass
+        };
+        usuariosActuales.push(nuevoUsuario);
+
+
+        localStorage.setItem("usuariosDB", JSON.stringify(usuariosActuales));
+
+        alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
+
 
         inputUsername.value = "";
         inputPassword.value = "";
@@ -55,16 +66,20 @@ btnEntrar.addEventListener("click", () => {
     const userLogin = inputLoginUser.value;
     const passLogin = inputLoginPass.value;
 
-    const passGuardada = localStorage.getItem(userLogin);
+    const usuariosActuales = JSON.parse(localStorage.getItem("usuariosDB")) || [];
 
-    if (passGuardada === null) {
+    
+    const usuarioEncontrado = usuariosActuales.find(u => u.username === userLogin);
+
+    if (!usuarioEncontrado) {
         alert("El usuario no existe.");
-    } else if (passGuardada === passLogin){
-        alert("Bienvenido al simulador de inversiones!");
-        
+    } else if (usuarioEncontrado.password === passLogin) {
+        alert("¡Bienvenido al simulador de inversiones!");
+
+        localStorage.setItem("usuarioLogueado", usuarioEncontrado.username);
+
         window.location.href = "../pages/menu.html";
     } else {
-        alert("Contraseña incorrecta.")
+        alert("Contraseña incorrecta.");
     }
 });
-
