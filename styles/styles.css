@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -22,14 +21,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
     color: white;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 /* SECTIONS */
 section {
     background-color: rgba(37, 23, 41, 0.7);
     border-radius: 20px;
-    padding: 60px 40px; 
+    padding: 60px 40px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
     max-width: 800px;
@@ -40,10 +39,19 @@ section {
 }
 
 /* TIPOGRAFIA */
-h1 { font-size: 3rem; margin-bottom: 30px; }
-h2 { font-size: 2rem; margin-bottom: 20px; }
+h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
 
-#primerPantalla h1 { line-height: 1.2; }
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#primerPantalla h1 {
+    line-height: 1.2;
+}
 
 p {
     font-size: 1.5rem;
@@ -51,20 +59,28 @@ p {
 
 
 /* INPUTS Y SELECT */
-input, select {
+input,
+select {
     padding: 10px;
     margin: 15px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     font-size: 1rem;
     font-weight: bold;
-    width: 250px; 
+    width: 250px;
     outline: none;
 }
 
 /* BOTONES */
-.opcion, #btnIniciarSesion, #btnRegistrarse, #btnEntrar, #btnGuardar, #btnCalcularPlazoFijo, #btnConvertir, #btnSimularBtc {
-    width: 220px; 
+.opcion,
+#btnIniciarSesion,
+#btnRegistrarse,
+#btnEntrar,
+#btnGuardar,
+#btnCalcularPlazoFijo,
+#btnConvertir,
+#btnSimularBtc {
+    width: 220px;
     padding: 15px 0;
     margin: 20px auto;
     font-size: 1.1rem;
@@ -73,13 +89,14 @@ input, select {
     border-radius: 12px;
     border: none;
     cursor: pointer;
-    background-color: rgb(187 , 92, 214);
+    background-color: rgb(187, 92, 214);
     transition: all 0.3s ease;
-    display: inline-block; 
+    display: inline-block;
 }
 
 
-.opcion:hover, button:hover {
+.opcion:hover,
+button:hover {
     background-color: rgb(150, 70, 180);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(187, 92, 214, 0.4);
@@ -96,3 +113,8 @@ input, select {
     color: white;
 }
 
+#btnCerrarSesion {
+    position: fixed;
+    top: 20px;
+    right: 50px;
+}

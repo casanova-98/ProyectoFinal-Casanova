@@ -142,13 +142,13 @@ if (btnCalcularPF) {
 
         if (isNaN(monto) || monto <= 0 || isNaN(dias) || dias < 30) {
             Swal.fire({
-            icon: "error",
-            title: "Revisa los datos:",
-            text: "El monto debe ser mayor a 0 y los dias mayor a 30!",
-            confirmButtonColor: '#bb5cd6',
-            background: '#251729',
-            color: '#fff'
-        });
+                icon: "error",
+                title: "Revisa los datos:",
+                text: "El monto debe ser mayor a 0 y los dias mayor a 30!",
+                confirmButtonColor: '#bb5cd6',
+                background: '#251729',
+                color: '#fff'
+            });
             return;
         }
 
@@ -178,3 +178,30 @@ botonesVolver.forEach(btn => {
         seccionMenuPrincipal.classList.remove("oculto");
     });
 });
+
+// BOTON CERRAR SESION
+const btnCerrarSesion = document.getElementById("btnCerrarSesion");
+
+if (btnCerrarSesion) {
+    btnCerrarSesion.addEventListener("click", () => {
+        Swal.fire({
+            title: '¿Estas seguro?',
+            text: "Tendrás que volver a ingresar tus datos",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#bb5cd6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, salir',
+            cancelButtonText: 'Cancelar',
+            background: '#251729',
+            color: '#fff'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                localStorage.removeItem("usuarioLogueado");
+
+                window.location.href = "../index.html";
+            }
+        });
+    });
+}
