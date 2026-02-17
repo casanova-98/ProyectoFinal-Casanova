@@ -59,9 +59,8 @@ btnGuardar.addEventListener("click", () => {
             username: user,
             password: pass
         };
+
         usuariosActuales.push(nuevoUsuario);
-
-
         localStorage.setItem("usuariosDB", JSON.stringify(usuariosActuales));
 
         Swal.fire({
@@ -102,22 +101,26 @@ btnEntrar.addEventListener("click", () => {
             color: '#fff'
         });
     } else if (usuarioEncontrado.password === passLogin) {
+
+        localStorage.setItem("usuarioLogueado", usuarioEncontrado.username);
+
         Swal.fire({
             position: "top-end",
-            icon: "suscces",
+            icon: "success",
             title: "Bienvenido al simulador de inversiones!",
             showConfirmButton: false,
             timer: 1500,
             confirmButtonColor: '#bb5cd6',
             background: '#251729',
             color: '#fff'
+        }).then(() => {
+            window.location.href = "../pages/menu.html";
         });
 
-        localStorage.setItem("usuarioLogueado", usuarioEncontrado.username);
 
-        window.location.href = "../pages/menu.html";
+
     } else {
-         Swal.fire({
+        Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Contraseña incorrecta!",
