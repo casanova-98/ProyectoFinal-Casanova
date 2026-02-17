@@ -45,6 +45,10 @@ h2 { font-size: 2rem; margin-bottom: 20px; }
 
 #primerPantalla h1 { line-height: 1.2; }
 
+p {
+    font-size: 1.5rem;
+}
+
 
 /* INPUTS Y SELECT */
 input, select {
