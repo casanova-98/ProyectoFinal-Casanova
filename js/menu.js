@@ -39,7 +39,14 @@ btnConvertir.addEventListener("click", async () => {
     const monedaSeleccionada = selectorMoneda.value;
 
     if (isNaN(monto) || monto <= 0) {
-        alert("Por favor, ingresa un monto valido.");
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Por favor ingresa un monto valido",
+            confirmButtonColor: '#bb5cd6',
+            background: '#251729',
+            color: '#fff'
+        });
         return;
     }
 
@@ -93,7 +100,14 @@ if (btnSimularBtc) {
     btnSimularBtc.addEventListener("click", async () => {
         const montoUsd = parseFloat(inputMontoBtc.value);
         if (isNaN(montoUsd) || montoUsd <= 0) {
-            alert("Ingresa un monto en dólares válido.");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Ingresa un monto en USD valido",
+                confirmButtonColor: '#bb5cd6',
+                background: '#251729',
+                color: '#fff'
+            });
             return;
         }
         textoBtc.innerText = "Calculando...";
@@ -127,7 +141,14 @@ if (btnCalcularPF) {
         console.log("Días ingresados:", dias);
 
         if (isNaN(monto) || monto <= 0 || isNaN(dias) || dias < 30) {
-            alert("Revisa los datos: el monto debe ser mayor a 0 y los días mínimo 30.");
+            Swal.fire({
+            icon: "error",
+            title: "Revisa los datos:",
+            text: "El monto debe ser mayor a 0 y los dias mayor a 30!",
+            confirmButtonColor: '#bb5cd6',
+            background: '#251729',
+            color: '#fff'
+        });
             return;
         }
 
