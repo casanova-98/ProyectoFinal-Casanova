@@ -81,6 +81,13 @@ btnGuardar.addEventListener("click", () => {
     }
 });
 
+const btnVolverRegistrarse = document.getElementById("btnVolverRegistrarse");
+
+btnVolverRegistrarse.addEventListener("click", () => {
+    seccionRegistrarse.classList.add("oculto");
+    seccionPrimerPantalla.classList.remove("oculto");
+});
+
 // INICIAR SESION
 
 
