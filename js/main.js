@@ -10,6 +10,7 @@ const inputLoginUser = document.getElementById("loginuser");
 const inputLoginPass = document.getElementById("loginpass");
 const btnEntrar = document.getElementById("btnEntrar");
 
+
 btnIniciarSesion.addEventListener("click", () => {
     seccionPrimerPantalla.classList.add("oculto");
     seccionRegistrarse.classList.add("oculto");
@@ -82,6 +83,7 @@ btnGuardar.addEventListener("click", () => {
 
 // INICIAR SESION
 
+
 btnEntrar.addEventListener("click", () => {
     const userLogin = inputLoginUser.value;
     const passLogin = inputLoginPass.value;
@@ -129,4 +131,11 @@ btnEntrar.addEventListener("click", () => {
             color: '#fff'
         });
     }
+});
+
+const btnVolverInicio = document.getElementById("btnVolverInicio");
+
+btnVolverInicio.addEventListener("click", () => {
+    seccionIniciarSesion.classList.add("oculto");
+    seccionPrimerPantalla.classList.remove("oculto");
 });
