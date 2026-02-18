@@ -126,7 +126,7 @@ button:hover {
     left: 20px;
     background: transparent;
     border: none;
-    color: white; 
+    color: white;
     cursor: pointer;
     transition: transform 0.3s ease, color 0.3s ease;
     display: flex;
@@ -135,11 +135,95 @@ button:hover {
 }
 
 .btn-back:hover {
-    color: rgb(187, 92, 214); 
+    color: rgb(187, 92, 214);
     transform: scale(1.2);
 }
 
 .btn-back svg {
-    width: 30px; 
+    width: 30px;
     height: 30px;
+}
+
+
+
+/* RESPONSIVE */
+
+/*Celulares*/
+
+@media (max-width: 768px) {
+    section {
+        padding: 40px 20px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    input,
+    select {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    #btnCerrarSesion {
+        right: 20px;
+    }
+}
+
+/*celu chico*/
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .opcion,
+    #btnIniciarSesion,
+    #btnRegistrarse,
+    #btnEntrar,
+    #btnGuardar,
+    #btnCalcularPlazoFijo,
+    #btnConvertir,
+    #btnSimularBtc {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    input, select {
+        width: 100%;
+    }
+
+    .btn-back {
+        top: 10px;
+        left: 10px;
+    }
+
+    .btn-back svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    section {
+        padding:  50px 15px 30px 15px;
+    }
+
+    #btnCerrarSesion {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px !important;
+        font-size: 0.8rem;
+    }
 }
